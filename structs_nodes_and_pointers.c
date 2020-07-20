@@ -4,7 +4,6 @@
 typedef struct node NODE, * pNODE;
 struct node {
 	char data;
-
 	pNODE next;
 };
 
