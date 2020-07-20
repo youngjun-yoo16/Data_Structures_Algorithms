@@ -5,7 +5,7 @@ typedef struct node {
 	char data;
 	struct node* next;
 } NODE, * pNODE;
-//pNODE stores the address of the struct node.
+//pNODE stores the address of the struct node. (Can be used to refer to a struct by its address)
 
 pNODE get_node(char data);
 int push(pNODE* ptop, char data);
@@ -29,12 +29,12 @@ int main()
 	pNODE top;
 	top = NULL;
 	char* q[] = {
-		"{{1 + 3} * (4 + 5)}",		   // 올바른 수식
-		"({1 + 3} * (4 + 5))",		   // 올바른 수식
-		"1 + (3 * {4 + 5)}",		   // 잘못된 수식
-		"1 + 3 * (4 + 5) )",		   // 잘못된 수식
-		"1 + 2 * {4 + 5)",			   // 잘못된 수식
-		"( () () () ( (() ()) ) () )", // 올바른 수식
+		"{{1 + 3} * (4 + 5)}",		   // Correct Expression
+		"({1 + 3} * (4 + 5))",		   // Correct Expression
+		"1 + (3 * {4 + 5)}",		   // Wrong Expression
+		"1 + 3 * (4 + 5) )",		   // Wrong Expression
+		"1 + 2 * {4 + 5)",	           // Wrong Expression
+		"( () () () ( (() ()) ) () )",     // Correct Expression
 		NULL
 	};
 
@@ -83,11 +83,11 @@ int main()
 		}
 		if (flag)
 		{
-			printf("잘못된 식\n");
+			printf("Wrong Expression\n");
 		}
 		else
 		{
-			printf("올바른 식\n");
+			printf("Correct Expression\n");
 		}
 	}
 
@@ -124,21 +124,21 @@ int main()
 	return 0;
 }
 
-// 노드를 만드는 함수
-// data: 노드에 저장할 데이터
+// Creating a function to make a node.
+// data: The data which is to be stored in the node.
 pNODE get_node(char data) {
 
-	// 새로 노드를 만듬
+	// Create new node by allocating the memory of an existing node (NODE).
 	pNODE new = malloc(sizeof(NODE));
 
-	// 새로 만든 노드에 데이터 초기화
+	// Initialize its data. 
 	if (!new) return NULL;
 	new->data = data;
 
-	// 새로 만든 노드에 next 초기화
+	// Initialize the pointer variable "next" to NULL.
 	new->next = NULL;
 
-	// 새로 만든 노드 반환
+	// Return the new node.
 	return new;
 }
 
@@ -149,41 +149,41 @@ inline is_empty(pNODE* ptop)
 
 char pop(pNODE* ptop)
 {
-	// top이 가르키는 노드의 데이터
-	// 임시 저장(반환용)
+	// Indicates the data which is stored in the "top" position.
+	// For temporary storing and return purpose.
 	if (is_empty(ptop))
 	{
 		return -1;
 	}
 	char res = (*ptop)->data;
 
-	// top의 하나 이전 노드
-	// 임시 저장(free용)
+	// Indicates the node which is just below the "top"'s position. 
+	// For temporary storing and free purpose.
 	pNODE next = (*ptop)->next;
 
-	// top이 가르키는 노드 free
+	// Free the node which the "top" is pointing towards. 
 	free(*ptop);
 
-	// top 하나 이전 노드로 변경
+	// Changes the position of the "top" to a node just below it.
 	*ptop = next;
 
-	// 데이터 반환
+	// If succeeds, return data.
 	return res;
 }
 
 int push(pNODE* ptop, char data)
 {
-	// 1. 새로운 노드를 만듦.
+	// 1. Create new node by using get_node().
 	pNODE new = get_node(data);
 
-	// 2. 기존 stack과 연결.
+	// 2. Connect with the original stack.
 	if (!new) return -1;
 	new->next = *ptop;
 
-	// 3. top이 새로운 노드 가르킴.
+	// 3. "top" points towards the new node.
 	*ptop = new;
 
-	// 성공시
+	// If succeeds, return 0.
 	return 0;
 
 }
