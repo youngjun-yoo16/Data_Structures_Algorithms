@@ -10,7 +10,7 @@ struct node {
 int main()
 {
 	NODE n = { .data = 'A' };
-	printf("n: %c\n", n.data);
+	printf("n: %c\n", n.data);			// Prints n: A
 
 	NODE a = { .data = 'A' };
 	NODE b = { .data = 'B' };
@@ -23,7 +23,7 @@ int main()
 	// Print the value of i.
 	for (pNODE i = &a; i != NULL; i = i->next)
 	{
-		printf("i: %c\n", i->data);
+		printf("i: %c\n", i->data);		// Prints i: A  i: B  i: C in each row.
 	}
 
 	printf("\n");
@@ -42,7 +42,7 @@ int main()
 
 	for (pNODE i = head; i != NULL; i = i->next)
 	{
-		printf("i: %c\n", i->data);
+		printf("i: %c\n", i->data);		// Prints i: A  i: B  i: C  i: D  i: E  i: F in each row.
 	}
 
 	return 0;
