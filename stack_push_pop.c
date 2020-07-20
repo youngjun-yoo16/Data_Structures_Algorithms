@@ -22,7 +22,7 @@ int main()
 		printf("%c: ", stack[i]);
 	}
 	printf("\n");
-	// A: B: C: D:
+	// Prints A: B: C: D:
 
 	int size = top;
 	for (int i = 0; i < size; i++)
@@ -30,7 +30,7 @@ int main()
 		printf("%c: ", pop());
 	}
 	printf("\n");
-	// D: C: B: A:
+	// Prints D: C: B: A:
 
 	int d = 'A';
 	while (1)
@@ -56,37 +56,37 @@ int main()
 
 int push(char data)
 {
-	// 이미 꽉차있다면 push 실패
+	// If the stack is already fully filled with data, push() fails to function.
 	if (is_full())
 		return -1;
 
-	// 스택의 가장 위에 데이터 삽입
+	// Insert the data at the top position of the stack.
 	stack[top] = data;
 
-	// top의 위치를 변경
+	// Changes the position of the top.
 	top += 1;
 
-	// 성공시 0 반환
+	// If push() succeeds to function, return 0.
 	return 0;
 }
 
 char pop()
 {
-	// 이미 비어있다면 실패
+	// If the stack is already empty, pop() fails to function.
 	if (is_empty())
 		return -1;
 
-	// top의 위치를 변경
+	// Changes the position of the top.
 	top -= 1;
 
-	// 스택에 가장 위에 있는 데이터 반환
+	// If pop() succeeds to function, return the data that is at the top of the stack.
 	return stack[top];
 }
 
 int is_full()
 {
-	// 스택이 가득 차있는 경우 1
-	// 아닌 경우 0 반환
+	// If the stack is full, return 1.
+	// Else return 0.
 	return (top == MAX);
 
 	/*if (top == MAX)
@@ -96,12 +96,12 @@ int is_full()
 	else
 	{
 		return 0;
-	}*/
+	}*/ 
 }
 
 int is_empty()
 {
-	// 스택이 텅 비어있는 경우 1
-	// 아닌 경우 0 반환
+	// If the stack is empty, return 1.
+	// Else return 0.
 	return (top == 0);
 }
