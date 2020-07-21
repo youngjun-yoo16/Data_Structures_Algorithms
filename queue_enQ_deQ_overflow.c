@@ -20,12 +20,12 @@ int is_empty();
 int is_full();
 
 #define add(x) ((x+1)%10)
-// 매크로 함수 (매개변수를 데이터가 아니라 글자로 취급함)
+// Macro function (Treats variable as character instead of treating as data)
 
 int main()
 {
 	int i = 4;
-	add(i);					// 이 내용은
+	add(i);				// 이 내용은
 	((i + 1) % MAX);		// 이 내용으로 변경 후 컴파일 수행됨
 
 	front = rear = 0;
@@ -60,7 +60,7 @@ int main()
 
 	while (1)
 	{
-		char tmp = deQ(); // deQ는 성공하면 ASCII Code 반환 (ASCII 코드는 0보다 큼). 즉 실패하면 -1 반환이니까 break한다.
+		char tmp = deQ();     // deQ는 성공하면 ASCII Code 반환 (ASCII 코드는 0보다 큼). 즉 실패하면 -1 반환이니까 break한다.
 		if (tmp < 0)
 		{
 			break;
@@ -78,7 +78,7 @@ char deQ()
 		return -1;
 	}
 
-	// 인출할 데이터 임시저장
+	// Temporarily store the data which is to be returned.
 	char temp = queue[front];
 
 	// front가 가르키는 위치 변경
