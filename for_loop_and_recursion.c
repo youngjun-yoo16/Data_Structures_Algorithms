@@ -3,8 +3,6 @@
 
 int factorial(int n)
 {
-	// 반복문 구현
-
 	int sum = 1;
 
 	while (n != 0)
@@ -18,7 +16,7 @@ int factorial(int n)
 
 int factorial2(int n)
 {
-	// 재귀 구현
+	// Demonstrating recursion.
 
 	if (n == 0) return 1;
 	return n * factorial2(n - 1);
@@ -28,7 +26,7 @@ int fib[100] = { 0,1,1 };
 
 int fibo(int n)
 {
-	// 재귀 구현
+	// Demonstrating recursion.
 
 	// if (n == 1 || n == 2) return 1;
 	if (fib[n] != 0) return fib[n];
@@ -38,8 +36,6 @@ int fibo(int n)
 
 int fibo2(int n)
 {
-	// 반복문 구현
-
 	int a = 1;
 	int b = 1;
 	int c;
@@ -68,7 +64,7 @@ int main()
 
 	printf("\n%d! = %d\n", num, fact);
 	printf("%d! = %d\n", num, fact2);
-	printf("\n10번째 피보나치 수: %d\n", fibo(10));
+	printf("\n10th Fibonacci Number: %d\n", fibo(10));
 	
 
 	return 0;
