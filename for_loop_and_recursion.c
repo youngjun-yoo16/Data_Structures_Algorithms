@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 int factorial(int n)
 {
 	int sum = 1;
