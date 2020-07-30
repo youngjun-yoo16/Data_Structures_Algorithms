@@ -29,7 +29,7 @@ int main()
 		printf("%c:", i->data);
 	}
 	printf("\n");
-	// A:B:C:D:
+	// Prints A:B:C:D:
 
 	head = NULL;
 	head = append2(head, 'A');
@@ -42,7 +42,7 @@ int main()
 		printf("%c:", i->data);
 	}
 	printf("\n");
-	// A:B:C:D:
+	// Prints A:B:C:D:
 
 	insert(head, 'B', 'b');
 	for (pNODE i = head; i != NULL; i = i->next)
@@ -50,7 +50,7 @@ int main()
 		printf("%c:", i->data);
 	}
 	printf("\n");
-	// A:B:b:C:D:
+	// Prints A:B:b:C:D:
 
 	return 0;
 }
@@ -63,14 +63,14 @@ pNODE insert2(pNODE curr, char srh, char data)
 	}
 	else if (curr->data == srh)
 	{
-		// 삽입
+		// Insert new node.
 		pNODE new = get_node(data);
 		new->next = curr;
 		return new;
 	}
 	else
 	{
-		// 재귀
+		// Recursion
 		curr->next = insert2(curr->next, srh, data);
 		return curr;
 	}
