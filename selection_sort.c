@@ -9,20 +9,19 @@ int* sel_sort(int data_ori[], int size)
 		data[i] = data_ori[i];
 	}
 
-	// 1. 가장 앞부터 순서대로 하나씩 선택
+	// 1. Select number from the beginning of the array.
 	for (int i = 0; i < size; i++)
 	{
-		// 2. 선택된 값부터 가장 마지막 까지 중
-		//가장 작은 값을 찾음
+		// 2. Search the smallest number from selected number to the number at the end of the array.
 		int min = i;
-		// 가장 작은 값이 몇번째 값 인지
+		// For storing the index of the selected number.
 		for (int j = i; j < size; j++)
 		{
 			if (data[min] > data[j]) {
 				min = j;
 			}
 		}
-		// 3. 찾은 값과 선택된 값을 서로 교환
+		// 3. Exchange the selected number and the smallest number which we just found.
 		int tmp = data[min];
 		data[min] = data[i];
 		data[i] = tmp;
