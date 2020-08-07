@@ -1,30 +1,27 @@
 #include <stdio.h>
 
+void swap(int data[], int x, int y)
+{
+	int tmp = data[x];
+	data[x] = data[y];
+	data[y] = tmp;
+}
+
 int main()
 {
 	int data[] = { 1, 5, 4, 9, 0, 7 };
 	int size = sizeof(data) / sizeof(int);
 	int tmp = 0;
 
-	// 1. Select number from the beginning of the array.
-	for (int i = 0; i < size; i++)
+	for (int i = 1; i < size; i++)
 	{
-		// 2. Search the smallest number from selected number to the number at the end of the array.
-		int min = i;
-		// For storing the index of the selected number.
-
-		for (int j = i + 1; j < size; j++)
+		for (int j = 0; j < size - i; j++)
 		{
-			if (data[j] < data[min])
+			if (data[j] > data[j + 1])
 			{
-				min = j;
+				swap(data, j, j + 1);
 			}
 		}
-
-		// 3. Exchange the selected number and the smallest number which we just found.
-		int tmp = data[min];
-		data[min] = data[i];
-		data[i] = tmp;
 	}
 
 	for (int i = 0; i < size; i++)
