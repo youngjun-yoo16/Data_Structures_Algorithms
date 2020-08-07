@@ -18,11 +18,13 @@ int* ins_sort(int data_ori[], int size)
 		for (j = i; j > 0; j--)
 		{
 			// 2. If the key element is smaller than its predecessor, compare it to the elements before.
-			if (data[j - 1] > key) {
+			if (data[j - 1] > key) 
+			{
 				// Move the greater elements one position up to make space for the swapped element.
 				data[j] = data[j - 1];
 			}
-			else {
+			else 
+			{
 				// 3. If the data is smaller than the value stored in "key" then break the loop.
 				break;
 			}
